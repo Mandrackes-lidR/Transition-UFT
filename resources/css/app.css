@@ -1,0 +1,62 @@
+:root {
+    --color-theme:       #17925a;
+    --color-theme-dark:  #0d5031;
+    --color-theme-light: #44db8d;
+    --color-accent:      #ff650e;
+    --color-somber:      #323232;
+    --color-dark:        #202020;
+    --color-darker:      #181818;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'd-din-condensed';
+        src:         url('../fonts/d-dincondensed-webfont.woff2') format('woff2'),
+                     url('../fonts/d-dincondensed-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style:  normal;
+    }
+    [type='text'], [type='search'], textarea, [type='number'],
+    [type='password'], [type='email'], [type='url'], [type='tel'],
+    [type='date'], [type='datetime-local'], [type='time'], [type='month'], [type='week'],
+    [multiple], select {
+        @apply
+        bg-white dark:bg-dark
+        w-full
+        rounded-md border-0 focus:border-b focus:border-b-theme
+        shadow-sm dark:shadow-none focus:shadow-lg dark:focus:shadow-none
+        focus:outline-none focus:ring-0
+        transition;
+    }
+
+    [type='checkbox'], [type='radio'] {
+        @apply
+        text-theme
+        rounded border-gray-400
+        focus:ring-theme focus:ring-offset-white dark:focus:ring-offset-darker
+        transition;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply
+        inline-block select-none
+        text-center leading-normal
+        border border-solid border-transparent rounded-md
+        focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-current
+        transition
+        py-1.5 px-3;
+    }
+
+    .section-title {
+        @apply
+        text-theme-dark dark:text-theme-light
+        dark:selection:bg-theme
+        font-title font-bold text-3xl md:text-4xl
+    }
+}
