@@ -154,7 +154,5 @@
                 <x-form></x-form>
             </div>
         </section>
-
-        <x-sponsors></x-sponsors>
     </main>
 @endsection
