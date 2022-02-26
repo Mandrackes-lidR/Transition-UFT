@@ -1,7 +1,7 @@
 {
-    "name": "simtrami/eco-calling",
+    "name": "mandrackes-lidr/transition-uft",
     "type": "project",
-    "description": "A web template for ecological awakenings.",
+    "description": "Template site accueillant les signatures les 13 propositions du collectif étudiant pour la transition socio-écologique de l'UFT.",
     "keywords": [
         "laravel",
         "template",
@@ -11,14 +11,14 @@
     ],
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": "^7.3",
+        "php": "^8.1",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "mcamara/laravel-localization": "^1.6",
-        "spatie/laravel-sitemap": "^5.9"
+        "spatie/laravel-sitemap": "^6.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
