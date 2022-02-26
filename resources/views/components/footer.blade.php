@@ -6,26 +6,6 @@
             <div>
                 <p>{{ env('OUR_NAME') }}</p>
             </div>
-            <nav class="space-x-2 text-xl sm:text-2xl" aria-label="{{ __('footer.select_languages') }}">
-                <a
-                    class="inline-block transition motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                    @if(LaravelLocalization::getCurrentLocale() === 'en')
-                    href="{{ LaravelLocalization::getLocalizedURL('fr') }}"
-                    title="Passer en {{ LaravelLocalization::getSupportedLocales()['fr']['native'] }}"
-                    @else
-                    href="{{ LaravelLocalization::getLocalizedURL('en') }}"
-                    title="Switch to {{ LaravelLocalization::getSupportedLocales()['en']['native'] }}"
-                    @endif
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                         stroke="currentColor"
-                    >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-                        />
-                    </svg>
-                </a>
-            </nav>
         </div>
         <div class="my-8">
             <div class="flex flex-col space-y-6 md:flex-row md:justify-between md:space-y-0">
@@ -34,17 +14,17 @@
                        href="{{ env('LINK_FACEBOOK') }}"
                        target="_blank" title="Facebook"
                     >
-                        <x-icons.facebook class="h-6 w-6"/>
+                        <x-icons.facebook class="h-6 w-6"></x-icons.facebook>
                     </a> <a
                         class="transition motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
                         href="{{ env('LINK_TWITTER') }}" target="_blank" title="Twitter"
                     >
-                        <x-icons.twitter class="h-6 w-6"/>
+                        <x-icons.twitter class="h-6 w-6"></x-icons.twitter>
                     </a> <a
                         class="transition motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
                         href="{{ env('LINK_LINKEDIN') }}" target="_blank" title="LinkedIn"
                     >
-                        <x-icons.linkedin class="h-6 w-6"/>
+                        <x-icons.linkedin class="h-6 w-6"></x-icons.linkedin>
                     </a>
                 </div>
                 <div class="md:text-right">
