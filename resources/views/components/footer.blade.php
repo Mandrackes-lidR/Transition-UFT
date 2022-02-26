@@ -22,9 +22,9 @@
                         <x-icons.twitter class="h-6 w-6"></x-icons.twitter>
                     </a> <a
                         class="transition motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                        href="{{ env('LINK_LINKEDIN') }}" target="_blank" title="LinkedIn"
+                        href="{{ env('LINK_INSTAGRAM') }}" target="_blank" title="Instagram"
                     >
-                        <x-icons.linkedin class="h-6 w-6"></x-icons.linkedin>
+                        <x-icons.instagram class="h-6 w-6"></x-icons.instagram>
                     </a>
                 </div>
                 <div class="md:text-right">

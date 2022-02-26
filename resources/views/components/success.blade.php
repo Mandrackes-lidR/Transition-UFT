@@ -7,16 +7,16 @@
             <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_FB') }}" target="_blank"
                title="{{ __('socials.facebook') }}"
             >
-                <x-icons.facebook class="h-7 w-7"/>
+                <x-icons.facebook class="h-7 w-7"></x-icons.facebook>
             </a> <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_TW') }}"
                     target="_blank"
                     title="{{ __('socials.twitter') }}"
             >
-                <x-icons.twitter class="h-7 w-7"/>
-            </a> <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_LIN') }}"
-                    target="_blank" title="{{ __('socials.linkedin') }}"
+                <x-icons.twitter class="h-7 w-7"></x-icons.twitter>
+            </a> <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_INSTA') }}"
+                    target="_blank" title="{{ __('socials.instagram') }}"
             >
-                <x-icons.linkedin class="h-7 w-7"/>
+                <x-icons.instagram class="h-7 w-7"></x-icons.instagram>
             </a>
         </div>
         <h2 class="font-title text-3xl font-bold mt-6 md:text-4xl">{{ __('success.second_title') }}</h2>

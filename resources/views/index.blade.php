@@ -60,17 +60,17 @@
                     <a class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
                        href="{{ env('LINK_POST_FB') }}" target="_blank" title="{{ __('socials.facebook') }}"
                     >
-                        <x-icons.facebook class="h-5 w-5"/>
+                        <x-icons.facebook class="h-5 w-5"></x-icons.facebook>
                     </a> <a
                         class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
                         href="{{ env('LINK_POST_TW') }}" target="_blank" title="{{ __('socials.twitter') }}"
                     >
-                        <x-icons.twitter class="h-5 w-5"/>
+                        <x-icons.twitter class="h-5 w-5"></x-icons.twitter>
                     </a> <a
                         class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                        href="{{ env('LINK_POST_LIN') }}" target="_blank" title="{{ __('socials.linkedin') }}"
+                        href="{{ env('LINK_POST_INSTA') }}" target="_blank" title="{{ __('socials.instagram') }}"
                     >
-                        <x-icons.linkedin class="h-5 w-5"/>
+                        <x-icons.instagram class="h-5 w-5"></x-icons.instagram>
                     </a>
                 </div>
             </aside>
@@ -135,7 +135,7 @@
             </article>
         </section>
 
-        <x-motivation/>
+        <x-motivation></x-motivation>
 
         <!-- Form -->
         <section
@@ -151,10 +151,10 @@
                         >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
                     </p>
                 </div>
-                <x-form/>
+                <x-form></x-form>
             </div>
         </section>
 
-        <x-sponsors/>
+        <x-sponsors></x-sponsors>
     </main>
 @endsection
