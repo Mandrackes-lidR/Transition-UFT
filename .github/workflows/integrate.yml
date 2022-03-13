@@ -1,6 +1,8 @@
 name: Laravel Continuous Integration
 
 on:
+  push:
+    branches: [ develop ]
   pull_request:
     branches: [ main ]
 
@@ -11,11 +13,11 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: '7.4'
+          php-version: '8.1'
       - name: Setup node
         uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: 17
       - uses: actions/checkout@master
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
