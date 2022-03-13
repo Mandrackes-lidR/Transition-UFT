@@ -2,10 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Enums\SignatoryCategory;
 use App\Models\Signature;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @method forInstitution(string[] $array)
+ */
 class SignatureFactory extends Factory
 {
     /**
@@ -27,6 +31,7 @@ class SignatureFactory extends Factory
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'email' => $email,
+            'category' => $this->faker->randomElement(SignatoryCategory::valueList()),
         ];
     }
 
