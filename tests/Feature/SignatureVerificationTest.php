@@ -8,7 +8,6 @@ use App\Notifications\VerifySignature;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
@@ -28,7 +27,9 @@ class SignatureVerificationTest extends TestCase
 
         Notification::assertNothingSent();
 
-        $signature = Signature::factory()->create();
+        $signature = Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
 
         event(new Signed($signature));
 
