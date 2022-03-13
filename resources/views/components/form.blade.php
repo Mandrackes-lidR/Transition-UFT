@@ -38,6 +38,46 @@
             @enderror
         </div>
     </div>
+    <div>
+        <label class="text-sm font-medium" for="institution">{!! __('form.institution.label') !!}</label>
+        <div class="mt-1">
+            <select
+                class="caret-theme @error('institution_id') border-red-600 focus:border-red-500 caret-red-500 @enderror"
+                type="text" name="institution_id" id="institution"
+            >
+                <option value="" class="text-gray-500">{{ __('form.institution.placeholder') }}</option>
+                @forelse($institutions as $institution)
+                    <option value="{{ $institution->id }}"
+                            @if(old('institution_id') == $institution->id) selected @endif
+                    >{{ $institution->name }}</option>
+                @empty
+                    <option value="">...</option>
+                @endforelse
+            </select>
+            @error('institution_id')
+            <div class="text-xs text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+    <div>
+        <label class="text-sm font-medium" for="category">{!! __('form.category.label') !!}</label>
+        <div class="mt-1">
+            <select class="caret-theme @error('category') border-red-600 focus:border-red-500 caret-red-500 @enderror"
+                    type="text" name="category" id="category"
+            >
+                <option value="" class="text-gray-500">{{ __('form.category.placeholder') }}</option>
+                @forelse($categories as $category)
+                    <option value="{{ $category->value }}" @if(old('category') == $category->value) selected @endif
+                    >{{ __($category->name) }}</option>
+                @empty
+                    <option value="">...</option>
+                @endforelse
+            </select>
+            @error('category')
+            <div class="text-xs text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
     <div class="md:col-span-2">
         <div class="flex items-start">
             <input class="mt-1 @error('register') border-red-600 focus:border-red-500 focus:ring-red-500 @enderror"

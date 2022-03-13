@@ -151,7 +151,7 @@
                         >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
                     </p>
                 </div>
-                <x-form></x-form>
+                <x-form :institutions="$institutions" :categories="$categories"></x-form>
             </div>
         </section>
     </main>
