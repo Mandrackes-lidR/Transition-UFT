@@ -26,8 +26,8 @@
     [multiple], select {
         @apply
         bg-white dark:bg-dark
-        w-full
-        rounded-md border-0 focus:border-b focus:border-b-theme
+        w-full rounded-md
+        border-0 border-b border-b-gray-300 focus:border-b-theme dark:border-b-gray-700 dark:focus:border-b-theme
         shadow-sm dark:shadow-none focus:shadow-lg dark:focus:shadow-none
         focus:outline-none focus:ring-0
         transition;

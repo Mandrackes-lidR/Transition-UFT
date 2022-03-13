@@ -21,6 +21,8 @@ class SignatureResource extends JsonResource
             'last_name' => $this->last_name,
             'email' => $this->email,
             'email_verified_at' => $this->email_verified_at,
+            'institution' => $this->institution->name,
+            'category' => $this->category,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
