@@ -10,7 +10,7 @@
 >
     <a class="font-title font-bold tracking-wider text-xl sm:text-2xl md:text-3xl lg:text-4xl dark:text-theme-light transition filter hover:drop-shadow transform focus:outline-none motion-safe:focus:scale-110"
        href="{{ route('home') }}"
-    > Socio-&Eacute;cologique
+    > {{ config('app.name') }}
         {{--<x-icons.logo class="h-7 sm:h-9 lg:h-11"/>--}}
     </a>
 
