@@ -3,7 +3,9 @@
 >
     @csrf
     <div>
-        <label class="text-sm font-medium" for="first-name">{!! __('form.first_name.label') !!}</label>
+        <label class="text-sm font-medium" for="first-name">{!! __('form.first_name.label') !!}<span
+                class="text-accent"
+            >*</span></label>
         <div class="mt-1">
             <input class="caret-theme @error('first_name') border-red-600 focus:border-red-500 caret-red-500 @enderror"
                    type="text" name="first_name" id="first-name" placeholder="{{ __('form.first_name.placeholder') }}"
@@ -15,7 +17,8 @@
         </div>
     </div>
     <div>
-        <label class="text-sm font-medium" for="last-name">{!! __('form.last_name.label') !!}</label>
+        <label class="text-sm font-medium" for="last-name">{!! __('form.last_name.label') !!}<span class="text-accent"
+            >*</span></label>
         <div class="mt-1">
             <input class="caret-theme @error('last_name') border-red-600 focus:border-red-500 caret-red-500 @enderror"
                    type="text" name="last_name" id="last-name" placeholder="{{ __('form.last_name.placeholder') }}"
@@ -27,7 +30,7 @@
         </div>
     </div>
     <div class="md:col-span-2">
-        <label class="text-sm font-medium" for="email">{!! __('form.email.label') !!}</label>
+        <label class="text-sm font-medium" for="email">{!! __('form.email.label') !!}<span class="text-accent">*</span></label>
         <div class="mt-1">
             <input class="caret-theme @error('email') border-red-600 focus:border-red-500 caret-red-500 @enderror"
                    type="email" name="email" id="email" placeholder="{{ __('form.email.placeholder') }}"
@@ -39,7 +42,9 @@
         </div>
     </div>
     <div>
-        <label class="text-sm font-medium" for="institution">{!! __('form.institution.label') !!}</label>
+        <label class="text-sm font-medium" for="institution">{!! __('form.institution.label') !!}<span
+                class="text-accent"
+            >*</span></label>
         <div class="mt-1">
             <select
                 class="caret-theme @error('institution_id') border-red-600 focus:border-red-500 caret-red-500 @enderror"
@@ -60,7 +65,8 @@
         </div>
     </div>
     <div>
-        <label class="text-sm font-medium" for="category">{!! __('form.category.label') !!}</label>
+        <label class="text-sm font-medium" for="category">{!! __('form.category.label') !!}<span class="text-accent"
+            >*</span></label>
         <div class="mt-1">
             <select class="caret-theme @error('category') border-red-600 focus:border-red-500 caret-red-500 @enderror"
                     type="text" name="category" id="category"
@@ -83,7 +89,7 @@
             <input class="mt-1 @error('register') border-red-600 focus:border-red-500 focus:ring-red-500 @enderror"
                    type="checkbox" id="register-checkbox" name="register"
             > <label class="text-sm text-justify block ml-2 mt-[1px]" for="register-checkbox"
-            >{!! __('form.accept') !!}</label>
+            ><span class="text-accent">*</span>{!! __('form.accept') !!}</label>
         </div>
         @error('register')
         <div class="text-xs text-red-500">{{ $message }}</div>
