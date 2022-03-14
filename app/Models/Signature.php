@@ -84,6 +84,26 @@ class Signature extends Model implements MustVerifyEmail
     }
 
     /**
+     * Get the signatory's institution's name.
+     *
+     * @return string
+     */
+    public function getInstitutionNameAttribute(): string
+    {
+        return $this->institution->name;
+    }
+
+    /**
+     * Get the signatory's category name.
+     *
+     * @return string
+     */
+    public function getCategoryNameAttribute(): string
+    {
+        return $this->category->name;
+    }
+
+    /**
      * Filter in the confirmed signatures.
      *
      * @param $query

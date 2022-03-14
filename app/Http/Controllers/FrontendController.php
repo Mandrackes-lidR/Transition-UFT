@@ -46,7 +46,7 @@ class FrontendController extends Controller
     {
         $signatures = Signature::confirmed()->paginate(
             $request->get('perPage') ?? 10,
-            ['first_name', 'last_name'],
+            ['first_name', 'last_name', 'institution_id', 'category'],
             'page',
             $request->get('page')
         );

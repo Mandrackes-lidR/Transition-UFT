@@ -12,7 +12,9 @@ return [
         'title' => 'Les signataires',
         'empty' => "Il n'y a pas encore de signature.",
         'columns' => [
-            'names' => 'Noms'
+            'names' => 'Noms',
+            'institutions' => 'Établissements',
+            'categories' => 'Activités',
         ]
     ],
     'go_to_form' => "Vous souhaitez les rejoindre&nbsp;?<br>C'est par ici 👇"

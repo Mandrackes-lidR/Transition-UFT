@@ -25,8 +25,9 @@
             <article class="flex-grow mx-auto max-w-4xl">
                 <h2 class="section-title mb-6">{{ __('signatures.table.title') }}</h2>
 
-                <x-table :columns="[__('signatures.table.columns.names') => 'full_name']"
-                         :elements="$signatures"
+                <x-table
+                    :columns="[__('signatures.table.columns.names') => 'full_name', __('signatures.table.columns.institutions') => 'institution_name', __('signatures.table.columns.categories') => 'category_name']"
+                    :elements="$signatures"
                 >{{ __('signatures.table.empty') }}</x-table>
 
                 {{ $signatures->onEachSide(0)->links() }}
