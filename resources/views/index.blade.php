@@ -226,7 +226,7 @@
                         Nos 13 propositions se basent sur les différents travaux et rapports qui ont été publiés sur la
                         transition socio-écologique de l’enseignement supérieur. Nous nous sommes notamment basé.e.s sur&nbsp;:
                     </p>
-                    <ul class="list-disc marker:text-theme pl-5 mt-5">
+                    <ul class="list-disc marker:text-theme dark:marker:text-theme-light pl-5 mt-5">
                         <li>
                             <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
                                href="https://refedd.org/cne/" target="_blank"
