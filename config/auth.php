@@ -121,12 +121,12 @@ return [
     |
     | Here you may define the amount of minutes before an email verification
     | temporarily signed route times out and the user is prompted the
-    | verification code has expired. By default, the timeout lasts for on hour.
+    | verification code has expired. By default, the timeout lasts for one hour.
     |
     */
 
     'verification' => [
-        'expire' => 1440,
+        'expire' => 1036800, // One week
     ],
 
 ];

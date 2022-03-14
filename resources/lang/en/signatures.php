@@ -12,7 +12,9 @@ return [
         'title' => 'The signatories',
         'empty' => "There is no signature.",
         'columns' => [
-            'names' => 'Names'
+            'names' => 'Names',
+            'institutions' => 'Institutions',
+            'categories' => 'Activities',
         ]
     ],
     'go_to_form' => "Want to be a part of it?<br>It's this way 👇"

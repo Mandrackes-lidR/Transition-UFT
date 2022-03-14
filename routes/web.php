@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +14,16 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => ['localize', 'localizationRedirect'],
-], function () {
-    Route::get('', [FrontendController::class, 'home'])->name('home');
-    Route::get('/signatures', [FrontendController::class, 'signatures'])->name('signatures');
-    Route::post('', [FrontendController::class, 'sign'])->name('sign');
+Route::get('', [FrontendController::class, 'home'])->name('home');
+Route::get('/signatures', [FrontendController::class, 'signatures'])->name('signatures');
+Route::post('', [FrontendController::class, 'sign'])->name('sign');
 
-    /*
-     * Handles the email verification to confirm a signature
-     */
-    Route::get('/signatures/{id}/verify/{hash}', [FrontendController::class, 'verify'])
-        ->where([
-            'id' => '[0-9]+',
-            'hash' => '[a-fA-F0-9]+',
-        ])->middleware('signed')
-        ->name('signatures.verify');
-});
+/*
+ * Handles the email verification to confirm a signature
+ */
+Route::get('/signatures/{id}/verify/{hash}', [FrontendController::class, 'verify'])
+    ->where([
+        'id' => '[0-9]+',
+        'hash' => '[a-fA-F0-9]+',
+    ])->middleware('signed')
+    ->name('signatures.verify');

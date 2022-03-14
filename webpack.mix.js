@@ -15,6 +15,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/index.js', 'public/js')
     .css('resources/css/app.css', 'public/css')
     .copyDirectory('resources/images', 'public/images')
+    .copyDirectory('resources/files', 'public/files')
     .sourceMaps()
 ;
 

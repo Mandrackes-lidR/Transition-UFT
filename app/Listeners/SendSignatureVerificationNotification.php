@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\Signed;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class SendSignatureVerificationNotification
 {
@@ -25,7 +24,7 @@ class SendSignatureVerificationNotification
      */
     public function handle(Signed $event): void
     {
-        if ($event->signature instanceof MustVerifyEmail && !$event->signature->hasVerifiedEmail()) {
+        if (!$event->signature->hasVerifiedEmail()) {
             $event->signature->sendEmailVerificationNotification();
         }
     }

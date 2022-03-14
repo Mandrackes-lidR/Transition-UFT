@@ -1,8 +1,8 @@
 :root {
-    --color-theme:       #17925a;
-    --color-theme-dark:  #0d5031;
-    --color-theme-light: #44db8d;
-    --color-accent:      #ff650e;
+    --color-theme:       #12417e;
+    --color-theme-dark:  #001b3a;
+    --color-theme-light: #ffb400;
+    --color-accent:      #ffb400;
     --color-somber:      #323232;
     --color-dark:        #202020;
     --color-darker:      #181818;
@@ -20,14 +20,15 @@
         font-weight: normal;
         font-style:  normal;
     }
+
     [type='text'], [type='search'], textarea, [type='number'],
     [type='password'], [type='email'], [type='url'], [type='tel'],
     [type='date'], [type='datetime-local'], [type='time'], [type='month'], [type='week'],
     [multiple], select {
         @apply
         bg-white dark:bg-dark
-        w-full
-        rounded-md border-0 focus:border-b focus:border-b-theme
+        w-full rounded-md
+        border-0 border-b border-b-gray-300 focus:border-b-theme dark:border-b-gray-700 dark:focus:border-b-theme-light
         shadow-sm dark:shadow-none focus:shadow-lg dark:focus:shadow-none
         focus:outline-none focus:ring-0
         transition;
@@ -35,9 +36,9 @@
 
     [type='checkbox'], [type='radio'] {
         @apply
-        text-theme
+        text-theme dark:text-theme-light
         rounded border-gray-400
-        focus:ring-theme focus:ring-offset-white dark:focus:ring-offset-darker
+        focus:ring-theme focus:ring-offset-white dark:focus:ring-theme-light dark:focus:ring-offset-darker
         transition;
     }
 }
@@ -58,5 +59,10 @@
         text-theme-dark dark:text-theme-light
         dark:selection:bg-theme
         font-title font-bold text-3xl md:text-4xl
+    }
+
+    .measure-list {
+        @apply
+        list-[upper-roman] marker:text-theme dark:marker:text-theme-light pl-6 space-y-2 md:pl-7 lg:pl-10
     }
 }

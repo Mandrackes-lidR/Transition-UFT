@@ -23,12 +23,18 @@ class SignatureDatabaseTest extends TestCase
         $signature->first_name = 'Foo';
         $signature->last_name = 'Bar';
         $signature->email = 'foo@bar.tld';
+        $signature->institution_id = 1;
+        $signature->category = 'student';
+        $signature->contactable = true;
         $signature->save();
 
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => null,
         ]);
     }
@@ -46,6 +52,9 @@ class SignatureDatabaseTest extends TestCase
         $signature->first_name = 'Foo';
         $signature->last_name = 'Bar';
         $signature->email = 'foo@bar.tld';
+        $signature->institution_id = 1;
+        $signature->category = 'student';
+        $signature->contactable = true;
         $signature->email_verified_at = $email_verified_at;
         $signature->save();
 
@@ -53,12 +62,18 @@ class SignatureDatabaseTest extends TestCase
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => null,
         ]);
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => $email_verified_at,
         ]);
     }
@@ -74,12 +89,18 @@ class SignatureDatabaseTest extends TestCase
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
         ]);
 
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => null,
         ]);
     }
@@ -97,6 +118,9 @@ class SignatureDatabaseTest extends TestCase
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => $email_verified_at,
         ]);
 
@@ -104,12 +128,18 @@ class SignatureDatabaseTest extends TestCase
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => $email_verified_at,
         ]);
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
             'last_name' => 'Bar',
             'email' => 'foo@bar.tld',
+            'institution_id' => 1,
+            'category' => 'student',
+            'contactable' => true,
             'email_verified_at' => null,
         ]);
     }
@@ -121,7 +151,9 @@ class SignatureDatabaseTest extends TestCase
      */
     public function testUpdateSignature1(): void
     {
-        Signature::factory()->create();
+        Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
 
         $this->assertDatabaseMissing('signatures', [
             'first_name' => 'Fork',
@@ -143,7 +175,9 @@ class SignatureDatabaseTest extends TestCase
      */
     public function testUpdateSignature2(): void
     {
-        Signature::factory()->create();
+        Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
         $email_verified_at = Carbon::now();
 
         $this->assertDatabaseMissing('signatures', [
@@ -166,7 +200,9 @@ class SignatureDatabaseTest extends TestCase
      */
     public function testMassUpdateSignature1(): void
     {
-        Signature::factory()->create();
+        Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
 
         $this->assertDatabaseMissing('signatures', [
             'first_name' => 'Fork',
@@ -187,7 +223,9 @@ class SignatureDatabaseTest extends TestCase
      */
     public function testMassUpdateSignature2(): void
     {
-        Signature::factory()->create();
+        Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
         $email_verified_at = Carbon::now();
 
         $this->assertDatabaseMissing('signatures', [
@@ -210,6 +248,7 @@ class SignatureDatabaseTest extends TestCase
     public function testCollectConfirmedSignatures(): void
     {
         Signature::factory()->count(20)
+            ->forInstitution(['name' => 'Foo'])
             ->sequence(
                 ['email_verified_at' => Carbon::now()],
                 ['email_verified_at' => null],
@@ -230,6 +269,7 @@ class SignatureDatabaseTest extends TestCase
     public function testCollectPendingSignatures(): void
     {
         Signature::factory()->count(20)
+            ->forInstitution(['name' => 'Foo'])
             ->sequence(
                 ['email_verified_at' => Carbon::now()],
                 ['email_verified_at' => null],
@@ -250,7 +290,9 @@ class SignatureDatabaseTest extends TestCase
      */
     public function testDeleteSignature(): void
     {
-        Signature::factory()->create();
+        Signature::factory()
+            ->forInstitution(['name' => 'Foo'])
+            ->create();
 
         $this->assertDatabaseCount('signatures', 1);
 

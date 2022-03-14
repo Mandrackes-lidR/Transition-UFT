@@ -13,8 +13,10 @@ return [
     |
     */
 
-    'accepted' => 'Les :attribute doivent être acceptés.',
+    'accepted' => 'Les termes doivent être acceptés.',
     'email' => "Doit être une adresse email valide.",
+    'exists' => "La sélection est invalide.",
+    'integer' => "Doit correspondre à un identifiant d'établissement",
     'max' => [
         'numeric' => 'Le :attribute ne peut pas être plus grand que :max.',
         'file' => 'Le :attribute ne peut pas faire plus de :max ko.',
@@ -56,6 +58,9 @@ return [
     'attributes' => [
         'first_name' => 'prénom',
         'last_name' => 'nom',
+        'institution' => 'établissement',
+        'institution_id' => 'établissement',
+        'category' => 'activité',
         'register' => 'termes',
     ],
 
