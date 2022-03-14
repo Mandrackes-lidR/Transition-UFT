@@ -4,7 +4,7 @@
             class="flex flex-col-reverse items-center space-y-4 space-y-reverse sm:flex-row sm:justify-between sm:space-y-0"
         >
             <div>
-                <p>{{ env('OUR_NAME') }}</p>
+                <p>© {{ date('Y') }} - {{ env('OUR_NAME') }}</p>
             </div>
         </div>
         <div class="my-8">

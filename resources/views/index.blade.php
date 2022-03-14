@@ -88,6 +88,7 @@
                             <strong class="text-theme dark:text-theme-light">nos cursus étudiants</strong>&nbsp;:
                             sommes-nous formé.e.s de façon cohérente face à ces enjeux&nbsp;? Les différentes entités1
                             qui se sont penchées dessus penchent plutôt pour le non (encore tout récemment <a
+                                class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
                                 href="https://start.lesechos.fr/apprendre/universites-ecoles/exclusivite-classement-2021-des-ecoles-et-universites-pour-changer-le-monde-quels-sont-les-30-etablissements-les-mieux-classes-1357899"
                                 target="_blank"
                             >le classement des Echos Start</a> nous confirme cette tendance). Aurons-nous les
