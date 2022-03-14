@@ -54,6 +54,7 @@ class RoutingTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -63,9 +64,18 @@ class RoutingTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertRedirect('/');
         $this->assertDatabaseCount('signatures', 1);
+        $this->assertDatabaseHas('signatures', [
+            'first_name' => 'Foo',
+            'last_name' => 'Bar',
+            'email' => 'foo@bar.tld',
+            'institution_id' => $institution->id,
+            'category' => 'student',
+            'contactable' => true,
+        ]);
     }
 
     /**
@@ -84,6 +94,7 @@ class RoutingTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -92,6 +103,7 @@ class RoutingTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'first_name',

@@ -23,6 +23,7 @@ class CreateSignaturesTable extends Migration
             $table->foreignIdFor(Institution::class);
 //            $table->enum('category', ['student', 'teacher', 'other']);
             $table->enum('category', SignatoryCategory::valueList());
+            $table->boolean('contactable')->default(false)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });

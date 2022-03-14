@@ -82,9 +82,21 @@
         <div class="flex items-start">
             <input class="mt-1 @error('register') border-red-600 focus:border-red-500 focus:ring-red-500 @enderror"
                    type="checkbox" id="register-checkbox" name="register"
-            > <label class="text-sm text-justify block ml-2" for="register-checkbox">{!! __('form.accept') !!}</label>
+            > <label class="text-sm text-justify block ml-2 mt-[1px]" for="register-checkbox"
+            >{!! __('form.accept') !!}</label>
         </div>
         @error('register')
+        <div class="text-xs text-red-500">{{ $message }}</div>
+        @enderror
+    </div>
+    <div class="md:col-span-2">
+        <div class="flex items-start">
+            <input class="mt-1 @error('contactable') border-red-600 focus:border-red-500 focus:ring-red-500 @enderror"
+                   type="checkbox" id="contactable-checkbox" name="contactable"
+            > <label class="text-sm text-justify block ml-2 mt-[2px]" for="contactable-checkbox"
+            >{!! __('form.contact') !!}</label>
+        </div>
+        @error('contactable')
         <div class="text-xs text-red-500">{{ $message }}</div>
         @enderror
     </div>

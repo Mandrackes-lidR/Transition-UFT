@@ -32,6 +32,7 @@ class SignatureFactory extends Factory
             'last_name' => $this->faker->lastName,
             'email' => $email,
             'category' => $this->faker->randomElement(SignatoryCategory::valueList()),
+            'contactable' => $this->faker->boolean(20),
         ];
     }
 

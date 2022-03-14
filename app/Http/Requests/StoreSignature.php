@@ -32,6 +32,7 @@ class StoreSignature extends FormRequest
             'institution_id' => 'required|integer|exists:App\Models\Institution,id',
             'category' => ['required', new Enum(SignatoryCategory::class)],
             'register' => 'accepted',
+            'contactable' => 'nullable',
         ];
     }
 }

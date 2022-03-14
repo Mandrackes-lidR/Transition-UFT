@@ -49,12 +49,16 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Signature whereLastName($value)
  * @method static Builder|Signature whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property bool $contactable
+ * @property-read string $category_name
+ * @property-read string $institution_name
+ * @method static Builder|Signature whereContactable($value)
  */
 class Signature extends Model implements MustVerifyEmail
 {
     use HasFactory, Notifiable, VerifyEmail;
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'institution_id', 'category'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'institution_id', 'category', 'contactable'];
 
     protected $dates = ['email_verified_at'];
 

@@ -27,6 +27,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => '',
         ]);
 
         $response->assertValid([
@@ -36,6 +37,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertRedirect('/');
         $this->assertDatabaseHas('signatures', [
@@ -44,6 +46,7 @@ class SignatureValidationTest extends TestCase
             'email' => 'foo@bar.tld',
             'institution_id' => $institution->id,
             'category' => 'student',
+            'contactable' => null,
             'email_verified_at' => null,
         ]);
     }
@@ -62,6 +65,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -70,6 +74,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'first_name',
@@ -92,6 +97,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -100,6 +106,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'last_name',
@@ -122,6 +129,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -130,6 +138,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'email',
@@ -152,6 +161,7 @@ class SignatureValidationTest extends TestCase
             'email' => 'foo@bar.tld',
             'institution_id' => $institution->id,
             'category' => 'student',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -160,6 +170,7 @@ class SignatureValidationTest extends TestCase
             'email',
             'institution_id',
             'category',
+            'contactable',
         ]);
         $response->assertInvalid([
             'register',
@@ -182,6 +193,7 @@ class SignatureValidationTest extends TestCase
             'email' => 'foo@bar.tld',
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -190,6 +202,7 @@ class SignatureValidationTest extends TestCase
             'email',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'institution_id',
@@ -212,6 +225,7 @@ class SignatureValidationTest extends TestCase
             'email' => 'foo@bar.tld',
             'institution_id' => $institution->id,
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -220,12 +234,43 @@ class SignatureValidationTest extends TestCase
             'email',
             'institution_id',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'category',
         ]);
         $response->assertRedirect('/');
         $this->assertDatabaseCount('signatures', 0);
+    }
+
+    /**
+     * Contactable is missing
+     *
+     * @return void
+     */
+    public function testSignMissing7(): void
+    {
+        $institution = Institution::factory()->create();
+        $response = $this->post('/', [
+            'first_name' => 'Foo',
+            'last_name' => 'Bar',
+            'email' => 'foo@bar.tld',
+            'institution_id' => $institution->id,
+            'category' => 'other',
+            'register' => 'on',
+        ]);
+
+        $response->assertValid([
+            'first_name',
+            'last_name',
+            'email',
+            'institution_id',
+            'category',
+            'register',
+            'contactable',
+        ]);
+        $response->assertRedirect('/');
+        $this->assertDatabaseCount('signatures', 1);
     }
 
     /**
@@ -243,6 +288,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -251,6 +297,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'first_name',
@@ -274,6 +321,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -282,6 +330,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'last_name',
@@ -305,6 +354,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -313,6 +363,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'email',
@@ -322,7 +373,7 @@ class SignatureValidationTest extends TestCase
     }
 
     /**
-     * Checkbox is not checked
+     * Terms checkbox is not checked
      *
      * @return void
      */
@@ -336,6 +387,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => '',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -344,6 +396,7 @@ class SignatureValidationTest extends TestCase
             'email',
             'institution_id',
             'category',
+            'contactable',
         ]);
         $response->assertInvalid([
             'register',
@@ -367,6 +420,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => '',
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -375,6 +429,7 @@ class SignatureValidationTest extends TestCase
             'email',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'institution_id',
@@ -398,6 +453,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => '',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -406,12 +462,44 @@ class SignatureValidationTest extends TestCase
             'email',
             'institution_id',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'category',
         ]);
         $response->assertRedirect('/');
         $this->assertDatabaseCount('signatures', 0);
+    }
+
+    /**
+     * Contactable checkbox is not checked
+     *
+     * @return void
+     */
+    public function testSignEmpty7(): void
+    {
+        $institution = Institution::factory()->create();
+        $response = $this->post('/', [
+            'first_name' => 'Foo',
+            'last_name' => 'Bar',
+            'email' => 'foo@bar.tld',
+            'institution_id' => $institution->id,
+            'category' => 'other',
+            'register' => 'on',
+            'contactable' => '',
+        ]);
+
+        $response->assertValid([
+            'first_name',
+            'last_name',
+            'email',
+            'institution_id',
+            'register',
+            'category',
+            'contactable',
+        ]);
+        $response->assertRedirect('/');
+        $this->assertDatabaseCount('signatures', 1);
     }
 
     /**
@@ -444,6 +532,7 @@ class SignatureValidationTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'register' => 'on',
+            'contactable' => 'on',
         ]);
 
         $response->assertValid([
@@ -452,6 +541,7 @@ class SignatureValidationTest extends TestCase
             'institution_id',
             'category',
             'register',
+            'contactable',
         ]);
         $response->assertInvalid([
             'email',
