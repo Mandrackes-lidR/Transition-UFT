@@ -7,7 +7,7 @@
     @endslot
 
     {{-- Body --}}
-    {{ $slot }}
+    {!! $slot !!}
 
     {{-- Subcopy --}}
     @isset($subcopy)
@@ -21,7 +21,7 @@
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            © {{ date('Y') }} {{ env('OUR_NAME') }}. @lang('All rights reserved.')
+            © {{ date('Y') }} - {{ env('OUR_NAME') }}. @lang('All rights reserved.')
         @endcomponent
     @endslot
 @endcomponent
