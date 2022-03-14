@@ -1,6 +1,6 @@
 <table class="w-full my-3">
     <thead>
-    <tr class="rounded-md bg-theme text-white">
+    <tr class="rounded-md bg-theme dark:bg-theme-dark text-white">
         @forelse($columns as $colDisplay => $col)
             <th class="border-b-2 border-theme-light p-1.5">{{ $colDisplay }}</th>
         @empty
@@ -12,7 +12,7 @@
     @forelse ($elements as $elt)
         <tr class="hover:bg-gray-50 dark:hover:bg-dark">
             @foreach($columns as $col)
-                <td class="border-t-2 border-dotted border-theme-dark p-1.5">{{ __($elt[$col]) }}</td>
+                <td class="border-t border-dotted border-theme-dark dark:border-theme p-1.5">{{ __($elt[$col]) }}</td>
             @endforeach
         </tr>
     @empty
