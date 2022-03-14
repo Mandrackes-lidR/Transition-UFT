@@ -33,7 +33,7 @@
             </x-slot>
 
             <x-slot name="scrollButtonText">{{ __('index.start_reading') }}</x-slot>
-            <x-slot name="scrollButtonAction">scrollToTargetAdjusted('manifesto')</x-slot>
+            <x-slot name="scrollButtonAction">scrollToForm()</x-slot>
         </x-page-title>
 
         <section class="w-full mb-12 md:text-lg" id="manifesto">
@@ -215,59 +215,6 @@
                             entreprises.
                         </li>
                     </ol>
-                </div>
-            </article>
-            <article class="text-justify px-4 mt-12 md:pr-8 md:pl-20 lg:px-0">
-                <div class="mx-auto max-w-4xl">
-                    <hr/>
-                    <h2 class="text-theme-dark dark:text-theme-light dark:selection:bg-theme font-title font-bold text-2xl md:text-3xl mt-8">
-                        Sources</h2>
-                    <p class="mt-5">
-                        Nos 13 propositions se basent sur les différents travaux et rapports qui ont été publiés sur la
-                        transition socio-écologique de l’enseignement supérieur. Nous nous sommes notamment basé.e.s sur&nbsp;:
-                    </p>
-                    <ul class="list-disc marker:text-theme dark:marker:text-theme-light pl-5 mt-5">
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://refedd.org/cne/" target="_blank"
-                            >La consultation nationale étudiante par le RESES en 2020</a></li>
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://theshiftproject.org/lavenir-de-la-planete-dans-lenseignement-superieur/"
-                               target="_blank"
-                            >Les travaux du Shift Project sur l’enseignement supérieur</a></li>
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://pour-un-reveil-ecologique.org/fr/reveiller-sa-formation/" target="_blank"
-                            >Les travaux et publication de l’association “Pour un Réveil Ecologique”</a></li>
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://campus-transition.org/le-manuel-de-la-grande-transition/" target="_blank"
-                            >Le Manuel de la Grande Transition</a></li>
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://cache.media.enseignementsup-recherche.gouv.fr/file/Actus/05/7/Rapport_mission_Jouzel_1394057.pdf"
-                               target="_blank"
-                            >Les conclusions du Rapport Jouzel (Mars 2021)</a> et le nouveau <a
-                                class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                                href="https://www.enseignementsup-recherche.gouv.fr/fr/rapport-former-aux-enjeux-de-la-transition-ecologique-dans-le-superieur-83888"
-                                target="_blank"
-                            >rapport publié en Février 2022</a></li>
-                        <li>
-                            <a class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                               href="https://jirafeau.isae-supaero.fr/f.php?h=2QnVpblY" target="_blank"
-                            >L’accord de Grenoble (de la COP2 Étudiante)</a></li>
-                        <li>Des articles notamment affiliés à des personnels de nos établissements toulousains&nbsp;: <a
-                                class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                                href="https://aoc.media/opinion/2021/10/28/pour-un-enseignement-de-la-transition-ecologique/"
-                                target="_blank"
-                            >pour un enseignement de la transition écologique</a>, <a
-                                class="underline text-theme dark:text-theme-light transition hover:text-theme-dark dark:hover:text-theme"
-                                href="https://www.linkedin.com/pulse/la-transition-%25C3%25A9cologique-de-lenseignement-sup%25C3%25A9rieur-quelle-mugnier"
-                                target="_blank"
-                            >sur la transition de l’enseignement supérieur</a>...
-                        </li>
-                    </ul>
                 </div>
             </article>
         </section>

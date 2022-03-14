@@ -29,9 +29,9 @@
                 </div>
                 <div class="md:text-right">
                     <p>
-                        <button class="font-semibold hover:text-gray-200 focus:outline-none focus:underline"
-                                onclick="scrollToTargetAdjusted('manifesto')"
-                        >{{ __('footer.about') }}</button>
+                        <a class="font-semibold hover:text-gray-200 focus:outline-none focus:underline"
+                           href="{{ asset('files/Sources.pdf') }}" target="_blank"
+                        >{{ __('footer.sources') }}</a>
                     </p>
                 </div>
             </div>

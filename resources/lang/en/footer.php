@@ -2,6 +2,7 @@
 
 return [
     'about' => 'About us',
+    'sources' => 'Sources',
     'privacy' => 'Privacy policy',
     'signature' => [
         'who' => 'Made by',
