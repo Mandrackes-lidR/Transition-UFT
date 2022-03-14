@@ -2,6 +2,7 @@
 
 return [
     'about' => 'A propos',
+    'sources' => 'Sources',
     'privacy' => 'Politique de confidentialité',
     'signature' => [
         'who' => 'Conçu par',
