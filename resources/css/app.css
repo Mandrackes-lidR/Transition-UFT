@@ -20,6 +20,7 @@
         font-weight: normal;
         font-style:  normal;
     }
+
     [type='text'], [type='search'], textarea, [type='number'],
     [type='password'], [type='email'], [type='url'], [type='tel'],
     [type='date'], [type='datetime-local'], [type='time'], [type='month'], [type='week'],
