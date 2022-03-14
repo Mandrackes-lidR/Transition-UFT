@@ -7,6 +7,6 @@ return [
         'already' => 'Déjà',
         'sign_count' => ":count signataires&nbsp;!",
     ],
-    'start_reading' => 'Lisez notre manifeste',
+    'start_reading' => 'Signez notre manifeste',
     'form_title' => 'Signer le manifeste',
 ];
