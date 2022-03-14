@@ -59,4 +59,9 @@
         dark:selection:bg-theme
         font-title font-bold text-3xl md:text-4xl
     }
+
+    .measure-list {
+        @apply
+        list-[upper-roman] marker:text-theme dark:marker:text-theme-light pl-6 space-y-2 md:pl-7 lg:pl-10
+    }
 }
