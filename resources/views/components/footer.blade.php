@@ -28,9 +28,11 @@
                     </a>
                 </div>
                 <div class="md:text-right">
-                    <p><a class="font-semibold hover:text-gray-200 focus:outline-none focus:underline"
-                          href="{{ env('LINK_ABOUT_US') }}" target="_blank"
-                        >{{ __('footer.about') }}</a></p>
+                    <p>
+                        <button class="font-semibold hover:text-gray-200 focus:outline-none focus:underline"
+                                onclick="scrollToTargetAdjusted('manifesto')"
+                        >{{ __('footer.about') }}</button>
+                    </p>
                 </div>
             </div>
             <div class="flex flex-col mt-4 space-y-4 md:flex-row md:justify-between md:space-y-0">
