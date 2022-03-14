@@ -64,6 +64,7 @@ class Signature extends Model implements MustVerifyEmail
 
     protected $casts = [
         'category' => SignatoryCategory::class,
+        'contactable' => 'boolean',
     ];
 
     /**
