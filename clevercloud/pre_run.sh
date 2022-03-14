@@ -1,3 +1,3 @@
 #!/bin/bash
 # Database migrations
-php artisan migrate --ansi --no-interaction
+php artisan migrate --force --no-ansi --no-interaction
