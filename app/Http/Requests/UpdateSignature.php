@@ -36,6 +36,7 @@ class UpdateSignature extends FormRequest
             'institution_id' => 'integer|exists:App\Models\Institution,id',
             'category' => [new Enum(SignatoryCategory::class)],
             'contactable' => 'nullable',
+            'phone' => 'nullable|string|max:20|min:10|regex:/^[+0][\d ()]+/i',
         ];
     }
 }

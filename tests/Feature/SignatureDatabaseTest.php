@@ -26,6 +26,7 @@ class SignatureDatabaseTest extends TestCase
         $signature->institution_id = 1;
         $signature->category = 'student';
         $signature->contactable = true;
+        $signature->phone = '+33123456789';
         $signature->save();
 
         $this->assertDatabaseHas('signatures', [
@@ -36,6 +37,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => null,
+            'phone' => '+33123456789',
         ]);
     }
 
@@ -56,6 +58,7 @@ class SignatureDatabaseTest extends TestCase
         $signature->category = 'student';
         $signature->contactable = true;
         $signature->email_verified_at = $email_verified_at;
+        $signature->phone = '+33123456789';
         $signature->save();
 
         $this->assertDatabaseMissing('signatures', [
@@ -66,6 +69,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => null,
+            'phone' => '+33123456789',
         ]);
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
@@ -75,6 +79,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => $email_verified_at,
+            'phone' => '+33123456789',
         ]);
     }
 
@@ -92,6 +97,7 @@ class SignatureDatabaseTest extends TestCase
             'institution_id' => 1,
             'category' => 'student',
             'contactable' => true,
+            'phone' => '+33123456789',
         ]);
 
         $this->assertDatabaseHas('signatures', [
@@ -102,6 +108,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => null,
+            'phone' => '+33123456789',
         ]);
     }
 
@@ -122,6 +129,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => $email_verified_at,
+            'phone' => '+33123456789',
         ]);
 
         $this->assertDatabaseMissing('signatures', [
@@ -132,6 +140,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => $email_verified_at,
+            'phone' => '+33123456789',
         ]);
         $this->assertDatabaseHas('signatures', [
             'first_name' => 'Foo',
@@ -141,6 +150,7 @@ class SignatureDatabaseTest extends TestCase
             'category' => 'student',
             'contactable' => true,
             'email_verified_at' => null,
+            'phone' => '+33123456789',
         ]);
     }
 
