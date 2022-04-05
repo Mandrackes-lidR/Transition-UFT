@@ -37,3 +37,14 @@ window.scrollToTargetAdjusted = function (targetId, offset) {
         behavior: "smooth"
     });
 }
+
+//> Hide the announcement
+window.hideAnnouncement = async function () {
+    const announcement = document.getElementById('announcement');
+    announcement.style.opacity = '0%';
+    announcement.classList += ' -translate-x-3';
+    await new Promise(r => setTimeout(r, 150));
+    announcement.style.display = 'none';
+}
+//< Hide the announcement
+

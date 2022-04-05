@@ -2,6 +2,7 @@ module.exports = {
     mode: 'jit',
     purge: [
         './resources/**/*.blade.php',
+        './resources/js/*.js',
     ],
     darkMode: 'class', // or 'media' or false
     theme: {
