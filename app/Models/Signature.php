@@ -142,6 +142,7 @@ class Signature extends Model implements MustVerifyEmail
 
     /**
      * Send the email verification notification.
+     * Overrides MustVerifyEmail::sendEmailVerificationNotification
      *
      * @return void
      */

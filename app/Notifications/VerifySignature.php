@@ -6,8 +6,6 @@ use App\Models\Signature;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\URL;
 
@@ -48,9 +46,8 @@ class VerifySignature extends Notification
      */
     protected function generateVerificationUrl(Signature $signature): void
     {
-        $this->verificationUrl = URL::temporarySignedRoute(
+        $this->verificationUrl = URL::signedRoute(
             'signatures.verify',
-            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
             [
                 'id' => $signature->getKey(),
                 'hash' => sha1($signature->getEmailForVerification()),
