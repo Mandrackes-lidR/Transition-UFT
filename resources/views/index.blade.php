@@ -9,7 +9,7 @@
 @section('content')
     @if ($errors->any())
         <div
-            class="w-full flex justify-between items-center space-x-2 fixed top-[56px] bg-red-200 text-red-500 z-10 p-4 md:top-[64px] md:px-4 lg:top-[72px]"
+            class="w-full flex justify-between items-center transition transform space-x-2 fixed top-[56px] bg-red-200 text-red-500 z-10 p-4 md:top-[64px] md:px-4 lg:top-[72px]"
             id="error-alert"
         >
             <div>

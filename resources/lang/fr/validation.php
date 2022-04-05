@@ -17,6 +17,12 @@ return [
     'email' => "Doit être une adresse email valide.",
     'exists' => "La sélection est invalide.",
     'integer' => "Doit correspondre à un identifiant d'établissement",
+    'min' => [
+        'numeric' => 'Le :attribute ne peut pas être plus petit que :min.',
+        'file' => 'Le :attribute ne peut pas faire moins de :min ko.',
+        'string' => 'Le :attribute ne peut pas faire moins de :min caractères.',
+        'array' => 'Le :attribute ne peut pas avoir moins de :min éléments.',
+    ],
     'max' => [
         'numeric' => 'Le :attribute ne peut pas être plus grand que :max.',
         'file' => 'Le :attribute ne peut pas faire plus de :max ko.',
@@ -26,6 +32,7 @@ return [
     'required' => 'Le champ :attribute est requis.',
     'string' => 'Le :attribute doit contenir du texte.',
     'unique' => 'Cet :attribute a déjà été utilisé.',
+    'regex' => 'Le format du :attribute est invalide.',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,6 +69,7 @@ return [
         'institution_id' => 'établissement',
         'category' => 'activité',
         'register' => 'termes',
+        'phone' => 'numéro de téléphone',
     ],
 
 ];

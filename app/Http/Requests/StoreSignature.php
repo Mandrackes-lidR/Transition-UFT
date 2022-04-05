@@ -33,6 +33,7 @@ class StoreSignature extends FormRequest
             'category' => ['required', new Enum(SignatoryCategory::class)],
             'register' => 'accepted',
             'contactable' => 'nullable',
+            'phone' => 'nullable|string|max:20|min:10|regex:/^[+0][\d ()]+$/i',
         ];
     }
 }

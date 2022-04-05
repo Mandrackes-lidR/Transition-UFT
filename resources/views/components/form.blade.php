@@ -29,7 +29,7 @@
             @enderror
         </div>
     </div>
-    <div class="md:col-span-2">
+    <div>
         <label class="text-sm font-medium" for="email">{!! __('form.email.label') !!}<span class="text-accent">*</span></label>
         <div class="mt-1">
             <input class="caret-theme @error('email') border-red-600 focus:border-red-500 caret-red-500 @enderror"
@@ -37,6 +37,18 @@
                    value="{{ old('email') }}"
             >
             @error('email')
+            <div class="text-xs text-red-500">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
+    <div>
+        <label class="text-sm font-medium" for="phone">{!! __('form.phone.label') !!}</label>
+        <div class="mt-1">
+            <input class="caret-theme @error('phone') border-red-600 focus:border-red-500 caret-red-500 @enderror"
+                   type="tel" name="phone" id="phone" placeholder="{{ __('form.phone.placeholder') }}"
+                   minlength="10" maxlength="20" value="{{ old('phone') }}"
+            >
+            @error('phone')
             <div class="text-xs text-red-500">{{ $message }}</div>
             @enderror
         </div>

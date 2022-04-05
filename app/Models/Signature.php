@@ -53,12 +53,22 @@ use Illuminate\Support\Carbon;
  * @property-read string $category_name
  * @property-read string $institution_name
  * @method static Builder|Signature whereContactable($value)
+ * @property string|null $phone
+ * @method static Builder|Signature wherePhone($value)
  */
 class Signature extends Model implements MustVerifyEmail
 {
     use HasFactory, Notifiable, VerifyEmail;
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'institution_id', 'category', 'contactable'];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'institution_id',
+        'category',
+        'contactable',
+        'phone',
+    ];
 
     protected $dates = ['email_verified_at'];
 
@@ -132,6 +142,7 @@ class Signature extends Model implements MustVerifyEmail
 
     /**
      * Send the email verification notification.
+     * Overrides MustVerifyEmail::sendEmailVerificationNotification
      *
      * @return void
      */

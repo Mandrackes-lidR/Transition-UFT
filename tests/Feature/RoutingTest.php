@@ -55,6 +55,7 @@ class RoutingTest extends TestCase
             'category' => 'student',
             'register' => 'on',
             'contactable' => 'on',
+            'phone' => "+33123456789"
         ]);
 
         $response->assertValid([
@@ -65,6 +66,7 @@ class RoutingTest extends TestCase
             'category',
             'register',
             'contactable',
+            'phone',
         ]);
         $response->assertRedirect('/');
         $this->assertDatabaseCount('signatures', 1);
@@ -75,6 +77,7 @@ class RoutingTest extends TestCase
             'institution_id' => $institution->id,
             'category' => 'student',
             'contactable' => true,
+            'phone' => '+33123456789',
         ]);
     }
 
@@ -95,6 +98,7 @@ class RoutingTest extends TestCase
             'category' => 'student',
             'register' => 'on',
             'contactable' => 'on',
+            'phone' => '+33123456789',
         ]);
 
         $response->assertValid([
@@ -104,6 +108,7 @@ class RoutingTest extends TestCase
             'category',
             'register',
             'contactable',
+            'phone',
         ]);
         $response->assertInvalid([
             'first_name',
