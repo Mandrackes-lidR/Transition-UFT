@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title'){{ __('index.page_title', ['app_name' => env('APP_NAME')]) }}@endsection
+@section('title')
+    {{ __('index.page_title', ['app_name' => env('APP_NAME')]) }}
+@endsection
 
 @section('scripts')
     <script src="{{ mix('js/index.js') }}"></script>
@@ -235,7 +237,11 @@
                         >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
                     </p>
                 </div>
-                <x-form :institutions="$institutions" :categories="$categories"></x-form>
+                @if(env('FORM_DISABLED', false))
+                    <x-form-disabled></x-form-disabled>
+                @else
+                    <x-form :institutions="$institutions" :categories="$categories"></x-form>
+                @endif
             </div>
         </section>
     </main>
