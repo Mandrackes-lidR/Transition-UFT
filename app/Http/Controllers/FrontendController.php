@@ -26,8 +26,13 @@ class FrontendController extends Controller
     public function home(): Factory|View|Application
     {
         $count = Signature::count();
-        $institutions = Institution::orderBy('name')->get();
-        $categories = SignatoryCategory::cases();
+        if (env('FORM_DISABLED', false)) {
+            $institutions = null;
+            $categories = null;
+        } else {
+            $institutions = Institution::orderBy('name')->get();
+            $categories = SignatoryCategory::cases();
+        }
 
         return view('index', [
             'count' => $count,
