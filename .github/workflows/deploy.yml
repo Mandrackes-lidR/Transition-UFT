@@ -1,13 +1,11 @@
-name: Laravel Continuous Integration
+name: Laravel Continuous Deployment
 
 on:
   push:
-    branches: [ develop ]
-  pull_request:
     branches: [ main ]
 
 jobs:
-  test_pull_request:
+  test:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -45,7 +43,7 @@ jobs:
         run: php artisan key:generate
       - name: Set directory permissions
         run: chmod -R 777 storage bootstrap/cache
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
+      - name: Run tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: pgsql
           DB_HOST: localhost
@@ -54,3 +52,12 @@ jobs:
           DB_USERNAME: localUser
           DB_PASSWORD: localPassword
         run: vendor/bin/phpunit
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deployment
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: ${{ secrets.DEPLOY_URL }}
+          method: 'GET'
