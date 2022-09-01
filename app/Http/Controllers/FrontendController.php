@@ -21,13 +21,14 @@ class FrontendController extends Controller
     /**
      * Display the homepage.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
     public function home(Request $request): Factory|View|Application
     {
         $count = Signature::count();
 
-        if (env('FORM_DISABLED', false)) {
+        if (config('app.form_disabled')) {
             $signatures = Signature::confirmed()->paginate(
                 $request->get('perPage') ?? 10,
                 ['first_name', 'last_name', 'institution_id', 'category'],

@@ -4,17 +4,19 @@
         <p class="font-medium">{{ __('success.explanations') }}</p>
         <p class="mt-3 mb-4">{{ __('success.please_share') }}</p>
         <div class="flex flex-row justify-center space-x-8">
-            <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_FB') }}" target="_blank"
+            <a class="transition motion-safe:hover:scale-125" href="{{ config('app.socials.facebook.post') }}"
+               target="_blank"
                title="{{ __('socials.facebook') }}"
             >
                 <x-icons.facebook class="h-7 w-7"></x-icons.facebook>
-            </a> <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_TW') }}"
+            </a> <a class="transition motion-safe:hover:scale-125" href="{{ config('app.socials.twitter.post') }}"
                     target="_blank"
                     title="{{ __('socials.twitter') }}"
             >
                 <x-icons.twitter class="h-7 w-7"></x-icons.twitter>
-            </a> <a class="transition motion-safe:hover:scale-125" href="{{ env('LINK_POST_INSTA') }}"
-                    target="_blank" title="{{ __('socials.instagram') }}"
+            </a> <a class="transition motion-safe:hover:scale-125" href="{{ config('app.socials.instagram.post') }}"
+                    target="_blank"
+                    title="{{ __('socials.instagram') }}"
             >
                 <x-icons.instagram class="h-7 w-7"></x-icons.instagram>
             </a>
