@@ -23,8 +23,8 @@
                         <x-icons.twitter class="h-6 w-6"></x-icons.twitter>
                     </a> <a
                         class="transition motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                        href="{{ config('app.socials.linkedin.account-url') }}"
-                        target="_blank" title="LinkedIn"
+                        href="{{ config('app.socials.instagram.account-url') }}"
+                        target="_blank" title="Instagram"
                     >
                         <x-icons.instagram class="h-6 w-6"></x-icons.instagram>
                     </a>
