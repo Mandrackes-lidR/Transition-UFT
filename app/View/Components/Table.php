@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\View\Component;
 
 class Table extends Component
@@ -12,19 +13,19 @@ class Table extends Component
     /**
      * @var array
      */
-    public $columns;
+    public array $columns;
 
     /**
-     * @var array|Model
+     * @var Model|array|AbstractPaginator
      */
-    public $elements;
+    public Model|array|AbstractPaginator $elements;
 
     /**
      * Table constructor.
      * @param array $columns
-     * @param array|Model $elements
+     * @param Model|array|AbstractPaginator $elements
      */
-    public function __construct(array $columns, $elements)
+    public function __construct(array $columns, Model|array|AbstractPaginator $elements)
     {
         $this->columns = $columns;
         $this->elements = $elements;
@@ -35,7 +36,7 @@ class Table extends Component
      *
      * @return View|Closure|string
      */
-    public function render()
+    public function render(): View|Closure|string
     {
         return view('components.table');
     }

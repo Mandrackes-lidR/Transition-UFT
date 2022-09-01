@@ -8,21 +8,11 @@ use Illuminate\View\View;
 class Success extends Component
 {
     /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Get the view / contents that represent the component.
      *
      * @return View|string
      */
-    public function render()
+    public function render(): string|View
     {
         return view('components.success');
     }
