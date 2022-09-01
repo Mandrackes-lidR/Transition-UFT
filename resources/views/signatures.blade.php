@@ -24,13 +24,17 @@
         >
             <article class="flex-grow mx-auto max-w-4xl">
                 <h2 class="section-title mb-6">{{ __('signatures.table.title') }}</h2>
+                <x-table :columns="[__('signatures.table.columns.names') => 'full_name']" :elements="$signatures">
+                    @if($signatures->toArray()['current_page'] > $signatures->toArray()['last_page'])
+                        {{ __('signatures.table.out_of_range') }}
+                    @else
+                        {{ __('signatures.table.empty') }}
+                    @endif
+                </x-table>
 
-                <x-table
-                    :columns="[__('signatures.table.columns.names') => 'full_name', __('signatures.table.columns.institutions') => 'institution_name', __('signatures.table.columns.categories') => 'category_name']"
-                    :elements="$signatures"
-                >{{ __('signatures.table.empty') }}</x-table>
-
-                {{ $signatures->onEachSide(0)->links() }}
+                @if($signatures->total() > 0)
+                    {{ $signatures->onEachSide(0)->links() }}
+                @endif
             </article>
         </section>
 

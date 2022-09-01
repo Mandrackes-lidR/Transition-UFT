@@ -229,18 +229,40 @@
             id="form"
         >
             <div class="mx-auto max-w-4xl">
-                <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:items-baseline">
-                    <h2 class="section-title">{{ __('index.form_title') }}</h2>
-                    <p class="text-xl">
-                        {{ __('index.subtitle.already') }}
-                        <span class="bg-theme text-white p-1"
-                        >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
-                    </p>
-                </div>
                 @if(env('FORM_DISABLED', false))
+
                     <x-form-disabled></x-form-disabled>
+
+                    <article class="flex-grow mx-auto max-w-4xl">
+                        <h2 class="section-title mb-6">{{ __('signatures.table.title') }}</h2>
+                        <x-table :columns="[__('signatures.table.columns.names') => 'full_name']"
+                                 :elements="$signatures"
+                        >
+                            @if($signatures->toArray()['current_page'] > $signatures->toArray()['last_page'])
+                                {{ __('signatures.table.out_of_range') }}
+                            @else
+                                {{ __('signatures.table.empty') }}
+                            @endif
+                        </x-table>
+
+                        @if($signatures->total() > 0)
+                            {{ $signatures->onEachSide(0)->links() }}
+                        @endif
+                    </article>
+
                 @else
+
+                    <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:items-baseline">
+                        <h2 class="section-title">{{ __('index.form_title') }}</h2>
+                        <p class="text-xl">
+                            {{ __('index.subtitle.already') }}
+                            <span class="bg-theme text-white p-1"
+                            >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
+                        </p>
+                    </div>
+
                     <x-form :institutions="$institutions" :categories="$categories"></x-form>
+
                 @endif
             </div>
         </section>
