@@ -13,12 +13,12 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
 }
 
 window.toggleDarkMode = function () {
-    if (localStorage.theme === 'dark') {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         localStorage.theme = 'light';
     } else {
         localStorage.theme = 'dark';
     }
-    window.location.reload(false);
+    window.location.reload();
 }
 
 /*
@@ -42,7 +42,7 @@ window.scrollToTargetAdjusted = function (targetId, offset) {
 window.hideAnnouncement = async function () {
     const announcement = document.getElementById('announcement');
     announcement.style.opacity = '0%';
-    announcement.classList += ' -translate-x-3';
+    announcement.classList.add('-translate-x-3');
     await new Promise(r => setTimeout(r, 150));
     announcement.style.display = 'none';
 }

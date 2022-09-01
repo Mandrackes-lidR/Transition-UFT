@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    {{ __('index.page_title', ['app_name' => env('APP_NAME')]) }}
+    {{ __('index.page_title', ['app_name' => config('app.name')]) }}
 @endsection
 
 @section('scripts')
@@ -61,17 +61,20 @@
                 <hr class="border-theme-light opacity-30 w-full my-4"/>
                 <div class="flex flex-col space-y-6 px-2.5 mx-0">
                     <a class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                       href="{{ env('LINK_POST_FB') }}" target="_blank" title="{{ __('socials.facebook') }}"
+                       href="{{ config('app.socials.facebook.post') }}" target="_blank"
+                       title="{{ __('socials.facebook') }}"
                     >
                         <x-icons.facebook class="h-5 w-5"></x-icons.facebook>
                     </a> <a
                         class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                        href="{{ env('LINK_POST_TW') }}" target="_blank" title="{{ __('socials.twitter') }}"
+                        href="{{ config('app.socials.twitter.post') }}" target="_blank"
+                        title="{{ __('socials.twitter') }}"
                     >
                         <x-icons.twitter class="h-5 w-5"></x-icons.twitter>
                     </a> <a
                         class="transition transform motion-safe:hover:scale-125 focus:outline-none motion-safe:focus:scale-125"
-                        href="{{ env('LINK_POST_INSTA') }}" target="_blank" title="{{ __('socials.instagram') }}"
+                        href="{{ config('app.socials.instagram.post') }}" target="_blank"
+                        title="{{ __('socials.instagram') }}"
                     >
                         <x-icons.instagram class="h-5 w-5"></x-icons.instagram>
                     </a>
@@ -229,18 +232,40 @@
             id="form"
         >
             <div class="mx-auto max-w-4xl">
-                <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:items-baseline">
-                    <h2 class="section-title">{{ __('index.form_title') }}</h2>
-                    <p class="text-xl">
-                        {{ __('index.subtitle.already') }}
-                        <span class="bg-theme text-white p-1"
-                        >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
-                    </p>
-                </div>
-                @if(env('FORM_DISABLED', false))
+                @if(config('app.form_disabled'))
+
                     <x-form-disabled></x-form-disabled>
+
+                    <article class="flex-grow mx-auto max-w-4xl">
+                        <h2 class="section-title mb-6">{{ __('signatures.table.title') }}</h2>
+                        <x-table :columns="[__('signatures.table.columns.names') => 'full_name']"
+                                 :elements="$signatures"
+                        >
+                            @if($signatures->toArray()['current_page'] > $signatures->toArray()['last_page'])
+                                {{ __('signatures.table.out_of_range') }}
+                            @else
+                                {{ __('signatures.table.empty') }}
+                            @endif
+                        </x-table>
+
+                        @if($signatures->total() > 0)
+                            {{ $signatures->onEachSide(0)->links() }}
+                        @endif
+                    </article>
+
                 @else
+
+                    <div class="flex flex-col items-center space-y-4 md:flex-row md:justify-between md:items-baseline">
+                        <h2 class="section-title">{{ __('index.form_title') }}</h2>
+                        <p class="text-xl">
+                            {{ __('index.subtitle.already') }}
+                            <span class="bg-theme text-white p-1"
+                            >{!! __('index.subtitle.sign_count', ['count' => $count]) !!}</span>
+                        </p>
+                    </div>
+
                     <x-form :institutions="$institutions" :categories="$categories"></x-form>
+
                 @endif
             </div>
         </section>

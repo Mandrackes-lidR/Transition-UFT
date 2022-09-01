@@ -21,18 +21,29 @@ class FrontendController extends Controller
     /**
      * Display the homepage.
      *
+     * @param Request $request
      * @return Application|Factory|View
      */
-    public function home(): Factory|View|Application
+    public function home(Request $request): Factory|View|Application
     {
         $count = Signature::count();
-        if (env('FORM_DISABLED', false)) {
-            $institutions = null;
-            $categories = null;
-        } else {
-            $institutions = Institution::orderBy('name')->get();
-            $categories = SignatoryCategory::cases();
+
+        if (config('app.form_disabled')) {
+            $signatures = Signature::confirmed()->paginate(
+                $request->get('perPage') ?? 10,
+                ['first_name', 'last_name', 'institution_id', 'category'],
+                'page',
+                $request->get('page')
+            )->fragment('form');
+
+            return view('index', [
+                'count' => $count,
+                'signatures' => $signatures,
+            ]);
         }
+
+        $institutions = Institution::orderBy('name')->get();
+        $categories = SignatoryCategory::cases();
 
         return view('index', [
             'count' => $count,
@@ -54,7 +65,7 @@ class FrontendController extends Controller
             ['first_name', 'last_name', 'institution_id', 'category'],
             'page',
             $request->get('page')
-        );
+        )->fragment('signatures');
 
         return view('signatures', [
             'signatures' => $signatures,

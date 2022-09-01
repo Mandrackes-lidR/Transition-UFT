@@ -22,7 +22,7 @@
                     {!! __('pagination.previous') !!}
                 </span>
                 @else
-                    <a href="{{ $paginator->previousPageUrl() }}#signatures"
+                    <a href="{{ $paginator->previousPageUrl() }}"
                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium border border-gray-300 dark:border-somber leading-5 rounded-md hover:bg-gray-50 dark:hover:bg-dark focus:outline-none focus:ring ring-theme focus:border-transparent active:bg-gray-100 active:text-gray-700 transition"
                     >
                         {!! __('pagination.previous') !!}
@@ -30,7 +30,7 @@
                 @endif
 
                 @if ($paginator->hasMorePages())
-                    <a href="{{ $paginator->nextPageUrl() }}#signatures"
+                    <a href="{{ $paginator->nextPageUrl() }}"
                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium border border-gray-300 dark:border-somber leading-5 rounded-md hover:bg-gray-50 dark:hover:bg-dark focus:outline-none focus:ring ring-theme focus:border-transparent active:bg-gray-100 active:text-gray-700 transition"
                     >
                         {!! __('pagination.next') !!}
@@ -76,7 +76,7 @@
                             </span>
                         </span>
                     @else
-                        <a href="{{ $paginator->previousPageUrl() }}#signatures" rel="prev"
+                        <a href="{{ $paginator->previousPageUrl() }}" rel="prev"
                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 border border-gray-300 dark:border-somber rounded-l-md leading-5 hover:bg-gray-50 dark:hover:bg-dark focus:z-10 focus:outline-none focus:ring ring-theme focus:border-transparent active:bg-gray-100 active:text-gray-500 transition"
                            aria-label="{{ __('pagination.previous') }}"
                         >
@@ -110,7 +110,7 @@
                                         >{{ $page }}</span>
                                     </span>
                                 @else
-                                    <a href="{{ $url }}#signatures"
+                                    <a href="{{ $url }}"
                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium border border-gray-300 dark:border-somber leading-5 hover:bg-gray-50 dark:hover:bg-dark focus:z-10 focus:outline-none focus:ring ring-theme focus:border-transparent active:bg-gray-100 active:text-gray-700 transition"
                                        aria-label="{{ __('pagination.go_to', ['page' => $page]) }}"
                                     >
@@ -123,7 +123,7 @@
 
                     {{-- Next Page Link --}}
                     @if ($paginator->hasMorePages())
-                        <a href="{{ $paginator->nextPageUrl() }}#signatures" rel="next"
+                        <a href="{{ $paginator->nextPageUrl() }}" rel="next"
                            class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 dark:text-gray-300 border border-gray-300 dark:border-somber rounded-r-md leading-5 hover:bg-gray-50 dark:hover:bg-dark focus:z-10 focus:outline-none focus:ring ring-theme focus:border-transparent active:bg-gray-100 active:text-gray-500 transition"
                            aria-label="{{ __('pagination.next') }}"
                         >

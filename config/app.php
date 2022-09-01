@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'description' => env('APP_TITLE'),
+    'form_disabled' => env('FORM_DISABLED', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,8 +29,6 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-
-    'announcement' => env('ANNOUNCEMENT', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -229,6 +229,77 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Links to socials
+    |--------------------------------------------------------------------------
+    */
+
+    'socials' => [
+        'twitter' => [
+            'account-url' => env('LINK_TWITTER'),
+            'account-name' => env('TWITTER_USER'),
+            'post' => env('LINK_POST_TW'),
+        ],
+        'facebook' => [
+            'account-url' => env('LINK_FACEBOOK'),
+            'post' => env('LINK_POST_FB'),
+        ],
+        'instagram' => [
+            'account-url' => env('LINK_INSTAGRAM'),
+            'post' => env('LINK_POST_INSTA'),
+        ],
+        'linkedin' => [
+            'account-url' => env('LINK_LINKEDIN'),
+            'post' => env('LINK_POST_LIN'),
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Other links
+    |--------------------------------------------------------------------------
+    */
+
+    'links' => [
+        'website' => env('LINK_OFFICIAL_WEBSITE'),
+        'about-us' => env('LINK_ABOUT_US'),
+        'privacy' => env('LINK_PRIVACY'),
+        'join-us' => env('LINK_JOIN_US'),
+        'contact-us' => env('LINK_CONTACT_FORM'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | SEOs
+    |--------------------------------------------------------------------------
+    */
+
+    'seo' => [
+        'title' => env('SEO_TITLE'),
+        'description' => env('SEO_DESCRIPTION'),
+        'image' => [
+            'url' => env('SEO_IMAGE'),
+            'type' => env('SEO_IMAGE_TYPE'),
+            'width' => env('SEO_IMAGE_WIDTH'),
+            'height' => env('SEO_IMAGE_HEIGHT'),
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Website content
+    |--------------------------------------------------------------------------
+    */
+
+    'copyright' => env('COPYRIGHT'),
+    'our-name' => env('OUR_NAME'),
+    'announcement' => env('ANNOUNCEMENT'),
+    'author' => [
+        'name' => env('APP_AUTHOR'),
+        'url' => env('APP_AUTHOR_URL'),
     ],
 
 ];
